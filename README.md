@@ -45,9 +45,8 @@ Deve haver um botão para que um redirecionar a pagina Home.
 
 Você sera avaliado por:
 
-- quantidade de entrega do projeto
-- priorização de tarefas
+- Quantidade de entrega do projeto
+- Priorização de tarefas
 - Resolução de problema
 - Estruturação
-- Comunicação
 - Qualidade de código
