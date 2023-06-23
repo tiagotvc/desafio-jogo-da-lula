@@ -43,10 +43,11 @@ Obs: Você pode precisar se cadastrar na plataforma do Figma para conseguir baix
 - Tocar `red-light-sound.mp3` toda vez que uma rodada comecar.
 - Tocar `main-theme.mp3` quando um novo jogo iniciar.
 
+## Avaliação 
+
 Você sera avaliado por:
 
 - Quantidade de entrega do projeto
-- Priorização de tarefas
 - Resolução de problema
 - Estruturação
 - Qualidade de código
