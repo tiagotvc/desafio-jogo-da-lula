@@ -36,6 +36,8 @@ Interface: https://www.figma.com/file/BXMmS1kSSjln9psMuudPgo/Jogo-da-Lula?type=d
 
 Protótipo interativo: https://www.figma.com/proto/BXMmS1kSSjln9psMuudPgo/Jogo-da-Lula?page-id=0%3A1&type=design&node-id=16-153&viewport=238%2C146%2C0.22&scaling=scale-down&starting-point-node-id=4%3A14&mode=design
 
+Obs: Você pode precisar se cadastrar na plataforma do Figma para conseguir baixar os assets do projeto
+
 ### Bonus
 
 - Tocar `red-light-sound.mp3` toda vez que uma rodada comecar.
