@@ -47,7 +47,6 @@
         "interface"
       ],
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "error",
       "react/display-name": "off"
     }
   },
