@@ -1,4 +1,5 @@
 import { BaseLayout } from "components/BaseLayout/baseLayout";
+import Button from "components/Button/button";
 import SvgComponent from "components/SvgComponent/svgComponent";
 
 export const HomePage = () => {
@@ -14,7 +15,10 @@ export const HomePage = () => {
   return (
     <BaseLayout styles={pageStyles}>
       <SvgComponent variant="squid" width={logoWidth} height={logoHeight} />
-      <button>Iniciar</button>
+      <div className="btn-homepage">
+        <Button>Iniciar</Button>
+      </div>
+      
     </BaseLayout>
   );
 };
