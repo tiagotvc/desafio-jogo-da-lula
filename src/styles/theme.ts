@@ -5,4 +5,7 @@ export const theme = {
     pink: "#ED1B76",
     gray: "#374151",
   },
+  sizes: {
+    pagesHeight: "100vh",
+  },
 };
