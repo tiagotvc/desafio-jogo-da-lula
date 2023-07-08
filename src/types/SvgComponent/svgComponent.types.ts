@@ -1,1 +1,1 @@
-export type TSvgVariant = "squid" | "avatar";
+export type TSvgVariant = "squid" | "soldier";
