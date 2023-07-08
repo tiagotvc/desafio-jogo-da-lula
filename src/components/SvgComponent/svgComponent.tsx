@@ -1,6 +1,6 @@
 import { ISvgComponent } from "interfaces/SvgComponent/svgComponent.interface";
 import { Squid } from "./Squid/squid";
-import { Soldier } from "./Soldier/squid";
+import { Soldier } from "./Soldier/soldier";
 
 const SvgComponent: React.FC<ISvgComponent> = ({ variant, width, height }) => {
   if (variant === "soldier") return <Soldier width={width} height={height} />;
