@@ -8,6 +8,7 @@ export const Container = styled.button`
     border-radius: 8px;
     background: ${theme.colors.pink};
     color: ${theme.colors.white};
+    border: none;
     cursor: pointer;
   `}
 `;

@@ -8,4 +8,11 @@ export const theme = {
   sizes: {
     pagesHeight: "100vh",
   },
+  typograph: {
+    fontSize: {
+      body3: "16px",
+    },
+    weight: 700,
+    family: "Inter",
+  },
 };
