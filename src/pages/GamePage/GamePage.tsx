@@ -23,7 +23,10 @@ export const GamePage = () => {
     playGame,
     playVotation,
     refreshGame,
+    generateRandomData: generateRandomPlayers
   } = useContext(PlayersContext);
+
+  if (players.length === 0 && status !== "finished") generateRandomPlayers();
 
 
   const message = "Nenhum participante eliminado até o momento";
