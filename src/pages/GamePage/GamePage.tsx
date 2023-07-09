@@ -7,7 +7,7 @@ import { PlayersContext } from "context/players.context";
 import { useContext } from "react";
 
 export const GamePage = () => {
-  const { players, eliminatedPlayers, playGame } = useContext(PlayersContext);
+  const { players, eliminatedPlayers, playing, status, voting, playGame, playVotation } = useContext(PlayersContext);
   const message = "Nenhum participante eliminado até o momento";
   const logoWidth = 290;
   const logoHeight = 140;
@@ -18,6 +18,13 @@ export const GamePage = () => {
     justifyContent: "space-evenly",
     alignItems: "center",
   };
+
+  const btnMessage = () => {
+    if (status === "playing" && !playing) return "Iniciar Rodada"
+    else if (status === "voting" && !voting) return "Iniciar Votação"
+    else if (playing) return "Eliminando participantes..."
+    return  "Votação Acontecendo..."
+  }
 
   return (
     <BaseLayout styles={pageStyles}>
@@ -45,8 +52,8 @@ export const GamePage = () => {
           </div>
           <div className="rounds-data-middle">
             <SvgComponent variant="soldier" width={159} height={136} />
-            <Button onClick={playGame} width={152} height={44}>
-              <Typograph variant="body3">Iniciar Rodada</Typograph>
+            <Button onClick={status === "playing" ? playGame : playVotation} loading={playing || voting}>
+             <Typograph variant="body3">{btnMessage()}</Typograph>
             </Button>
           </div>
           <div className="rounds-data-bottom"></div>

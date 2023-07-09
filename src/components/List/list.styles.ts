@@ -31,6 +31,14 @@ export const Container = styled.ul`
       }
     }
 
+    .award-and-voting {
+      display: flex;
+      width: 98px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
     img {
       border-radius: 50%;
     }

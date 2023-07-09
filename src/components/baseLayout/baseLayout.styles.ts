@@ -111,7 +111,7 @@ export const Container = styled.div`
     .rounds-data-middle {
       display: flex;
       flex-direction: column;
-      align-self: center;
+      align-items: center;
     }
 
     .rounds-data-bottom {
