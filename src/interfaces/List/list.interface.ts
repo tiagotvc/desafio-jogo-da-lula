@@ -6,4 +6,5 @@ export interface TList {
 
 export interface IList {
   items: TList[];
+  type: "players" | "losers";
 }

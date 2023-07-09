@@ -1,1 +1,1 @@
-export type Status = "playing" | "voting";
+export type Status = "playing" | "voting" | "finished";

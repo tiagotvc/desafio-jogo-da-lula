@@ -6,13 +6,8 @@ export const Button: React.FC<IButton> = (
   { children, onClick, loading = false },
   props
 ) => {
- 
   return (
-    <Container
-      {...props}
-      onClick={onClick}
-      loading={loading}
-    >
+    <Container {...props} onClick={onClick} loading={loading.toString()}>
       {children}
     </Container>
   );

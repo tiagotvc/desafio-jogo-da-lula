@@ -6,8 +6,7 @@ export const Container = styled.span<ITypography>`
     font-size: ${theme.typograph.fontSize[variant]};
     line-height: 24px;
     color: ${theme.colors.white};
-    weight: ${theme.typograph.weight};
-    font-family:${theme.typograph.family}
+    font-weight: ${theme.typograph.weight[variant]};
+    font-family: ${theme.typograph.family};
   `}
 `;
- 

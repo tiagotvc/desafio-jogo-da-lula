@@ -21,7 +21,6 @@ export const Container = styled.ul`
 
     .avatar-and-name {
       display: flex;
-      width: 160px;
       justify-content: left;
       align-items: center;
       height: 64px;
@@ -33,7 +32,7 @@ export const Container = styled.ul`
 
     .award-and-voting {
       display: flex;
-      width: 98px;
+      width: 123px;
       justify-content: center;
       align-items: center;
       text-align: center;

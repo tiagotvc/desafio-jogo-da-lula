@@ -9,7 +9,7 @@ export const Container = styled.button<IButtonStyles>`
     justify-content: center;
     padding: 10px 27px 10px 27px;
     border-radius: 8px;
-    background: ${loading ? theme.colors.gray02 : theme.colors.pink};
+    background: ${loading === "true" ? theme.colors.gray02 : theme.colors.pink};
     color: ${theme.colors.white};
     border: none;
     cursor: pointer;

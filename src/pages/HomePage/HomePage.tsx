@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { PlayersContext } from "context/players.context";
 
-export const HomePage  = () => {
+export const HomePage = () => {
   const navigate = useNavigate();
-  const { generateRandomData: generateRandomPlayers} = useContext(PlayersContext);
+
+  const { generateRandomData: generateRandomPlayers, beginSound } =
+    useContext(PlayersContext);
 
   const gamePagePath = "/gamePage";
   const logoWidth = 367;
@@ -22,9 +24,10 @@ export const HomePage  = () => {
   };
 
   const onBeginGame = () => {
-    generateRandomPlayers()
-    navigate(gamePagePath)
-  }
+    generateRandomPlayers();
+    navigate(gamePagePath);
+    beginSound.play();
+  };
 
   return (
     <BaseLayout styles={pageStyles}>

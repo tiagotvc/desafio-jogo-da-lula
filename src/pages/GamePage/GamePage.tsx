@@ -5,9 +5,26 @@ import SvgComponent from "components/SvgComponent/svgComponent";
 import { Typograph } from "components/Typography/typography";
 import { PlayersContext } from "context/players.context";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const GamePage = () => {
-  const { players, eliminatedPlayers, playing, status, voting, playGame, playVotation } = useContext(PlayersContext);
+  const navigate = useNavigate();
+  const {
+    players,
+    eliminatedPlayers,
+    playing,
+    status,
+    voting,
+    round,
+    votesForEndGame,
+    awardFunds,
+    roundSound,
+    beginSound,
+    playGame,
+    playVotation,
+    refreshGame,
+  } = useContext(PlayersContext);
+
   const message = "Nenhum participante eliminado até o momento";
   const logoWidth = 290;
   const logoHeight = 140;
@@ -20,11 +37,32 @@ export const GamePage = () => {
   };
 
   const btnMessage = () => {
-    if (status === "playing" && !playing) return "Iniciar Rodada"
-    else if (status === "voting" && !voting) return "Iniciar Votação"
-    else if (playing) return "Eliminando participantes..."
-    return  "Votação Acontecendo..."
-  }
+    if (status === "playing" && !playing) return "Iniciar Rodada";
+    else if (status === "voting" && !voting) return "Iniciar Votação";
+    else if (status === "finished") return "Finalizar Jogo";
+    else if (playing) return "Eliminando participantes...";
+
+    return "Votação Acontecendo...";
+  };
+
+  const onClickButton = () => {
+    switch (status) {
+      case "playing":
+        playGame();
+        beginSound.pause();
+        roundSound.play();
+        break;
+      case "voting":
+        playVotation();
+        break;
+      case "finished":
+        refreshGame();
+        navigate("/");
+        break;
+      default:
+        playGame();
+    }
+  };
 
   return (
     <BaseLayout styles={pageStyles}>
@@ -36,27 +74,37 @@ export const GamePage = () => {
             <Typograph variant="body3">{`${players.length}/69`}</Typograph>
           </div>
           <div className="players-content list">
-            <List items={players} />
+            <List items={players} type="players" />
           </div>
         </div>
         <div className="rounds-data">
           <div className="rounds-data-top">
             <div className="round">
-              <Typograph variant="body3">Round</Typograph>
-              01
+              <Typograph variant="body4">Round</Typograph>
+              <Typograph variant="body1">{round}</Typograph>
             </div>
             <div className="funds">
-              <Typograph variant="body3">Fundos do Prêmio</Typograph>
-              $00.00
+              <Typograph variant="body4">Fundos do Prêmio</Typograph>
+              <Typograph variant="body1">{`$ ${awardFunds.toLocaleString(
+                ["de-DE"],
+                {
+                  style: "decimal",
+                  minimumIntegerDigits: 2,
+                  minimumFractionDigits: 2,
+                }
+              )}`}</Typograph>
             </div>
           </div>
           <div className="rounds-data-middle">
             <SvgComponent variant="soldier" width={159} height={136} />
-            <Button onClick={status === "playing" ? playGame : playVotation} loading={playing || voting}>
-             <Typograph variant="body3">{btnMessage()}</Typograph>
+            <Button onClick={onClickButton} loading={playing || voting}>
+              <Typograph variant="body3">{btnMessage()}</Typograph>
             </Button>
           </div>
-          <div className="rounds-data-bottom"></div>
+          <div className="rounds-data-bottom">
+            <Typograph variant="body4">Votos para o fim do jogo</Typograph>
+            <Typograph variant="body1">{votesForEndGame}</Typograph>
+          </div>
         </div>
         <div className="players-content right">
           <div className="players-content header">
@@ -65,14 +113,13 @@ export const GamePage = () => {
           </div>
           {eliminatedPlayers.length > 0 && (
             <div className="players-content list">
-              <List items={eliminatedPlayers} />
+              <List items={eliminatedPlayers} type="losers" />
             </div>
           )}
           {eliminatedPlayers.length === 0 && (
             <div className="players-content empty">
-                <Typograph variant="body3">{message}</Typograph>
+              <Typograph variant="body3">{message}</Typograph>
             </div>
-            
           )}
         </div>
       </div>

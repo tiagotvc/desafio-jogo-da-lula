@@ -92,6 +92,10 @@ export const Container = styled.div`
       height: 80px;
 
       .round {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
         width: 113px;
         height: 80px;
         padding: 4px, 32px, 4px, 32px;
@@ -100,6 +104,10 @@ export const Container = styled.div`
       }
 
       .funds {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
         width: 321px;
         height: 80px;
         padding: 4px, 16px, 4px, 16px;
@@ -115,6 +123,10 @@ export const Container = styled.div`
     }
 
     .rounds-data-bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
       width: 449px;
       height: 80px;
       border-radius: 8px;

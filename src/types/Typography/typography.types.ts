@@ -4,4 +4,5 @@ export type TypographVariants =
   | "subtitle"
   | "body1"
   | "body2"
-  | "body3";
+  | "body3"
+  | "body4";

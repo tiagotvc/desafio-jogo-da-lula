@@ -11,9 +11,14 @@ export const theme = {
   },
   typograph: {
     fontSize: {
+      body1: "32px",
       body3: "16px",
     },
-    weight: 700,
     family: "Inter",
+    weight: {
+      body1: 700,
+      body3: 700,
+      body4: 400,
+    },
   },
 };

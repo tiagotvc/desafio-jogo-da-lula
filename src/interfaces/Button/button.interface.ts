@@ -4,5 +4,5 @@ export interface IButton extends React.HTMLProps<HTMLButtonElement> {
 }
 
 export interface IButtonStyles {
-  loading?: boolean;
+  loading?: string;
 }
