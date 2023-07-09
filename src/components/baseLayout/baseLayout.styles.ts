@@ -63,6 +63,17 @@ export const Container = styled.div`
         max-height: 331px;
         overflow: auto;
       }
+
+      & .empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          width: 191px;
+          text-align: center;
+        }
+      }
     }
 
     .rounds-data {

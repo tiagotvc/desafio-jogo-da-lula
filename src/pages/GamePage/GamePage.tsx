@@ -7,7 +7,8 @@ import { PlayersContext } from "context/players.context";
 import { useContext } from "react";
 
 export const GamePage = () => {
-    const { players, playGame } = useContext(PlayersContext);
+  const { players, eliminatedPlayers, playGame } = useContext(PlayersContext);
+  const message = "Nenhum participante eliminado até o momento";
   const logoWidth = 290;
   const logoHeight = 140;
 
@@ -23,14 +24,13 @@ export const GamePage = () => {
       <SvgComponent variant="squid" width={logoWidth} height={logoHeight} />
       <div className="game-content">
         <div className="players-content left">
-            <div className="players-content header">
-                <Typograph variant="body3">Participantes</Typograph>
-                <Typograph variant="body3">{`${players.length}/69`}</Typograph>
-            </div>
-            <div className="players-content list">
-                <List items={players}/>
-            </div>
-            
+          <div className="players-content header">
+            <Typograph variant="body3">Participantes</Typograph>
+            <Typograph variant="body3">{`${players.length}/69`}</Typograph>
+          </div>
+          <div className="players-content list">
+            <List items={players} />
+          </div>
         </div>
         <div className="rounds-data">
           <div className="rounds-data-top">
@@ -44,18 +44,29 @@ export const GamePage = () => {
             </div>
           </div>
           <div className="rounds-data-middle">
-            <SvgComponent variant="soldier" width={159} height={136}/>
-            <Button onClick={playGame} width={152} height={44}><Typograph variant="body3">Iniciar Rodada</Typograph></Button>
+            <SvgComponent variant="soldier" width={159} height={136} />
+            <Button onClick={playGame} width={152} height={44}>
+              <Typograph variant="body3">Iniciar Rodada</Typograph>
+            </Button>
           </div>
-          <div className="rounds-data-bottom">
-           
-          </div>
+          <div className="rounds-data-bottom"></div>
         </div>
         <div className="players-content right">
-        <div className="players-content header">
-                <Typograph variant="body3">Participantes Eliminados</Typograph>
-                <Typograph variant="body3">69/69</Typograph>
+          <div className="players-content header">
+            <Typograph variant="body3">Participantes Eliminados</Typograph>
+            <Typograph variant="body3">{`${eliminatedPlayers.length}/69`}</Typograph>
+          </div>
+          {eliminatedPlayers.length > 0 && (
+            <div className="players-content list">
+              <List items={eliminatedPlayers} />
             </div>
+          )}
+          {eliminatedPlayers.length === 0 && (
+            <div className="players-content empty">
+                <Typograph variant="body3">{message}</Typograph>
+            </div>
+            
+          )}
         </div>
       </div>
     </BaseLayout>
