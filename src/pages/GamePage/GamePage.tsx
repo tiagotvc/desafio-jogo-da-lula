@@ -3,61 +3,13 @@ import Button from "components/Button/button";
 import { List } from "components/List/list";
 import SvgComponent from "components/SvgComponent/svgComponent";
 import { Typograph } from "components/Typography/typography";
+import { PlayersContext } from "context/players.context";
+import { useContext } from "react";
 
 export const GamePage = () => {
+    const { players, playGame } = useContext(PlayersContext);
   const logoWidth = 290;
   const logoHeight = 140;
-
-  const mock = [
-    {
-        name: "Tiago Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago2 Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago3 carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago2 Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago3 carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago2 Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago3 carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago2 Carvalho",
-        money: "300"
-    },
-    {
-        name: "Tiago3 carvalho",
-        money: "300"
-    }
-  ]
 
   const pageStyles = {
     display: "flex",
@@ -65,6 +17,7 @@ export const GamePage = () => {
     justifyContent: "space-evenly",
     alignItems: "center",
   };
+
   return (
     <BaseLayout styles={pageStyles}>
       <SvgComponent variant="squid" width={logoWidth} height={logoHeight} />
@@ -72,10 +25,10 @@ export const GamePage = () => {
         <div className="players-content left">
             <div className="players-content header">
                 <Typograph variant="body3">Participantes</Typograph>
-                <Typograph variant="body3">69/69</Typograph>
+                <Typograph variant="body3">{`${players.length}/69`}</Typograph>
             </div>
             <div className="players-content list">
-                <List items={mock}/>
+                <List items={players}/>
             </div>
             
         </div>
@@ -92,7 +45,7 @@ export const GamePage = () => {
           </div>
           <div className="rounds-data-middle">
             <SvgComponent variant="soldier" width={159} height={136}/>
-            <Button width={152} height={44}><Typograph variant="body3">Iniciar Rodada</Typograph></Button>
+            <Button onClick={playGame} width={152} height={44}><Typograph variant="body3">Iniciar Rodada</Typograph></Button>
           </div>
           <div className="rounds-data-bottom">
            

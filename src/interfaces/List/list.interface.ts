@@ -1,6 +1,7 @@
 export interface TList {
   name: string;
-  money: string;
+  award: number;
+  vote: string;
 }
 
 export interface IList {
