@@ -25,6 +25,7 @@ export const GamePage = () => {
     refreshGame,
   } = useContext(PlayersContext);
 
+
   const message = "Nenhum participante eliminado até o momento";
   const logoWidth = 290;
   const logoHeight = 140;
