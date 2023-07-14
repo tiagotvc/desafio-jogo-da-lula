@@ -169,11 +169,17 @@ export const generateRandomPlayers = (quantity: number) => {
     const randomFirstName = names[randomFirstNameIndex];
     const randomLastName = lastNames[randomLastNameIndex];
     const fullName = `${randomFirstName} ${randomLastName}`;
-    randomNames.push({
-      name: fullName,
-      award: 420000.0,
-      vote: "",
-    });
+    const found = randomNames.some((item) => item.name === fullName);
+
+    if (!found) {
+      randomNames.push({
+        name: fullName,
+        award: 420000.0,
+        vote: "",
+      });
+    } else {
+      i--;
+    }
   }
 
   return randomNames;

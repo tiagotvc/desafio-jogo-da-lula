@@ -26,8 +26,9 @@ export const GamePage = () => {
     generateRandomData: generateRandomPlayers
   } = useContext(PlayersContext);
 
-  if (players.length === 0 && status !== "finished") generateRandomPlayers();
-
+  if ((players.length === 0 || players.length === 1) && status !== "finished") {
+    generateRandomPlayers();
+  }
 
   const message = "Nenhum participante eliminado até o momento";
   const logoWidth = 290;
@@ -74,8 +75,8 @@ export const GamePage = () => {
       <div className="game-content">
         <div className="players-content left">
           <div className="players-content header">
-            <Typograph variant="body3">Participantes</Typograph>
-            <Typograph variant="body3">{`${players.length}/69`}</Typograph>
+            <Typograph variant="body2">Participantes</Typograph>
+            <Typograph variant="body2">{`${players.length}/69`}</Typograph>
           </div>
           <div className="players-content list">
             <List items={players} type="players" />
@@ -84,11 +85,11 @@ export const GamePage = () => {
         <div className="rounds-data">
           <div className="rounds-data-top">
             <div className="round">
-              <Typograph variant="body4">Round</Typograph>
+              <Typograph variant="body3">Round</Typograph>
               <Typograph variant="body1">{round}</Typograph>
             </div>
             <div className="funds">
-              <Typograph variant="body4">Fundos do Prêmio</Typograph>
+              <Typograph variant="body3">Fundos do Prêmio</Typograph>
               <Typograph variant="body1">{`$ ${awardFunds.toLocaleString(
                 ["de-DE"],
                 {
@@ -102,18 +103,18 @@ export const GamePage = () => {
           <div className="rounds-data-middle">
             <SvgComponent variant="soldier" width={159} height={136} />
             <Button onClick={onClickButton} loading={playing || voting}>
-              <Typograph variant="body3">{btnMessage()}</Typograph>
+              <Typograph variant="body2">{btnMessage()}</Typograph>
             </Button>
           </div>
           <div className="rounds-data-bottom">
-            <Typograph variant="body4">Votos para o fim do jogo</Typograph>
+            <Typograph variant="body3">Votos para o fim do jogo</Typograph>
             <Typograph variant="body1">{votesForEndGame}</Typograph>
           </div>
         </div>
         <div className="players-content right">
           <div className="players-content header">
-            <Typograph variant="body3">Participantes Eliminados</Typograph>
-            <Typograph variant="body3">{`${eliminatedPlayers.length}/69`}</Typograph>
+            <Typograph variant="body2">Participantes Eliminados</Typograph>
+            <Typograph variant="body2">{`${eliminatedPlayers.length}/69`}</Typograph>
           </div>
           {eliminatedPlayers.length > 0 && (
             <div className="players-content list">
@@ -122,7 +123,7 @@ export const GamePage = () => {
           )}
           {eliminatedPlayers.length === 0 && (
             <div className="players-content empty">
-              <Typograph variant="body3">{message}</Typograph>
+              <Typograph variant="body2">{message}</Typograph>
             </div>
           )}
         </div>

@@ -6,7 +6,7 @@ import { useStyles } from "hooks/useStyles";
 
 export const Typograph: React.FC<ITypography> = ({
   children,
-  variant = "body3",
+  variant = "body2",
   styles,
 }) => {
   const { alterStyles } = useStyles();

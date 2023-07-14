@@ -94,6 +94,7 @@ const PlayersContextProvider = ({ children }) => {
     );
     if (votesYes.length > players.length / 2) {
       setVotes(votesYes.length);
+      setStatus("finished")
       endGame();
       return;
     }

@@ -12,10 +12,10 @@ export const List: React.FC<IList> = ({ items, type }) => {
         <li key={item.name}>
           <div className="avatar-and-name">
             <img src="/images/avatar.png" alt="" width={32} height={32} />
-            <Typograph variant="body4">{item.name}</Typograph>
+            <Typograph variant="body3">{item.name}</Typograph>
           </div>
           <div className="award-and-voting">
-            <Typograph variant="body3">
+            <Typograph variant="body2">
               {voting && type === "players"
                 ? item.vote
                 : `$ ${Number(item.award).toLocaleString(["de-DE"], {
